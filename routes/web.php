@@ -53,7 +53,7 @@ Route::get('profile/diki',function()
 Route::get('profile/budi',function()
 {
   return'My name is budi<br>
-   my name is famous around indonesian text book';
+   my name is famous on indonesian text book';
 });
 
 //route parameter
@@ -69,3 +69,75 @@ Route::get('biodata/{name}/{adress}/{age}',function($a,$b,$c)
        '<br>From '.$b. 
        '<br> My age '.$c;
 });
+
+//opsional parameter
+Route::get('user/{name?}', function ($name = 'Diki Maulana') {
+    return 'Your name is '.$name;
+});
+
+//latihan
+//opsional parameter
+Route::get('pesan/{makan?}/{minum?}/{harga?}', function ($makan=null, $minum= null, $harga=null) {
+    $str = "Silakan Pesan Dulu";
+    if (isset($makan)) {
+         $str= "Anda Pesan ". $makan;
+    }
+    if (isset($minum)) {
+         $str .= " & ". $minum;
+    }
+
+    if (isset($harga)&&($harga <= 0)) {
+         $str .= " maaf Uang anda kurang";
+    }
+    elseif (isset($harga)&&($harga >35000)) {
+         $str .= " Anda mendapat size Large dengan harga Rp.".$harga;
+    }
+     elseif (isset($harga)&&($harga >=25000)) {
+         $str .= " Anda mendapat size Medium dengan harga Rp.".$harga;
+    }
+     elseif (isset($harga)&&($harga <25000)) {
+         $str .= " Anda mendapat size Small dengan harga Rp.".$harga;
+    }
+    return $str;
+});
+
+//tugas
+Route::get('tes-tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb= null, $umur=null) {
+    $str = "Silakan Isi Dulu";
+    if (isset($nama)) {
+         $str= "Nama ". $nama."<br>";
+    }
+
+    if(isset($bb)){
+        $str .="Berat Badan Anda ".$bb."Kg<br>";
+
+        if ($bb >= 76 && $bb <= 100 ) {
+           $str.="Anda harus Turun berat badan";
+        }
+         elseif ($bb >= 65 && $bb <= 75) {
+           $str.="Berat badan anda Ideal";
+        }
+         elseif ($bb >= 50 && $bb <= 64) {
+           $str.="Naikan Berat Badan anda";
+        }
+         elseif ($bb <= 50) {
+           $str.="Anda Kekurangan Gizi";
+        }
+    }
+
+ if(isset($umur)){
+        $str .="<br>Umur Anda ".$umur." thn<br>";
+         if (($umur >= 30)&&($umur <= 40)) {
+           $str.="Pangkat : Perwira";
+        }
+         elseif (($umur >= 40)&&($umur <= 50)) {
+           $str.="Pangkat : Laksamana";
+        }
+         elseif (($umur >= 50)&&($umur <= 60)) {
+           $str.="Pangkat : Jendral";
+        }
+ }
+
+     return $str;
+});
+
