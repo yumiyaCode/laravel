@@ -141,3 +141,62 @@ Route::get('tes-tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb= null, $um
      return $str;
 });
 
+//akses model
+Route::get('testmodel',function()
+{
+
+ $queery= App\Post::all();
+ return $queery;
+
+});
+
+Route::get('testmodel-id',function()
+{
+
+ $queery= App\Post::find(1);
+ return $queery;
+
+});
+
+Route::get('testmodel-like',function()
+{
+
+ $queery= App\Post::where('title','like','%Okita%')->get();
+ return $queery;
+
+});
+
+Route::get('testmodel-ch',function()
+{
+
+$post = App\Post::find(1);
+$post->title = "Tips and Build Atago";
+$post->save();
+return $post;
+
+});
+
+Route::get('testmodel-del',function()
+{
+
+$post = App\Post::find(1);
+$post->delete();
+
+});
+
+Route::get('testmodel-add',function()
+{
+
+$post = new App\Post;
+$post->title = "Tips and Build Colorado";
+$post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+$post->save();
+return $post;
+
+});
+
+
+
+
+
+
