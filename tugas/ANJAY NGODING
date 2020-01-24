@@ -1,0 +1,21 @@
+Tugas buat 11 rpl 1
+Buat 1 buah model dan migration, namanya silahkan tentuin sendiri,
+Migration/table di isi minimal 7 field/column, kemudian dibuat sample datanya menggunakan seeder minimal 10 data/record
+
+Kemudian data yang sudah masuk ke database bisa dipanggil melalui Route
+
+1. Buat route yang hanya menampilkan 3 data dari keseluruhan data menggunakan method 'take' dan 'get'
+
+2. Buat Route yang hanya menampilkan 1 record dan yg dipilih hanya 3 field yang ditentukan menggunakan method 'select' dan first
+
+3. Buat Route parameter yang bisa menambahkan data baru, 
+Contoh : 
+Route::get('tambah-data/{parameter}',function($a){
+$data = new App\Model();
+$data->field = $a;
+$data->save();
+return $data;
+});
+
+Pemanggilan di browser
+Localhost:8000/tambah-data/isi-parameter
