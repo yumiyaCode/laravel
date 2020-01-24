@@ -195,6 +195,37 @@ return $post;
 
 });
 
+Route::get('karung/take3',function()
+{
+$Servant = App\Servant::all()
+->take(3);
+return $Servant;
+
+});
+
+Route::get('karung/select', function()
+{
+
+$Servant = App\Servant::select('name','ids','jname')->first();
+return $Servant;
+
+});
+
+Route::get('karung/{name}/{ids}/{jname}/{hp}/{atk}/{cost}/{va}', function($name,$ids,$jname,$hp,$atk,$cost,$va) {
+    $Servant = new App\Servant;
+    $Servant->name = $name;
+    $Servant->ids = $ids;
+    $Servant->jname = $jname;
+    $Servant->hp = $hp;
+    $Servant->atk = $atk;
+    $Servant->cost = $cost;
+    $Servant->va = $va;
+    $Servant->save();
+    return $Servant;
+// check record baru di database
+    });
+
+
 
 
 
