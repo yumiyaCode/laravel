@@ -8,9 +8,9 @@
 </head>
 <body>
 
- @foreach($tabungan as $value)
- Nama  : {{$value -> nama}}<br>
- Nis : {{$value -> nis}}
+ @foreach($tabungan as $value1)
+ Nama  : {{$value1 -> nama}}<br>
+ Nis : {{$value1 -> nis}}
  <hr>
  @endforeach
 
