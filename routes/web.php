@@ -226,7 +226,34 @@ Route::get('karung/{name}/{ids}/{jname}/{hp}/{atk}/{cost}/{va}', function($name,
     });
 
 
+Route::get('latihan','LatihanController@halo');
+Route::get('kali/{a?}/{b?}','LatihanController@kali');
+Route::get('bagi/{a?}/{b?}','LatihanController@bagian');
+Route::get('tambah/{a?}/{b?}','LatihanController@tambah');
+Route::get('kurang/{a?}/{b?}','LatihanController@kurang');
+Route::get('/day','LatihanController@loop');
+Route::get('/key','LatihanController@loop2');
+Route::get('/key1','LatihanController@gaji');
 
+//crud Tabungan
+Route::get('tabungan','TabunganController@index');
+Route::get('tabungan/{id}','TabunganController@show');
+Route::get('tabungan-add/{nis}/{nama}/{kelas}/{jml}','TabunganController@store');
+Route::get('tabungan-edit/{id}/{nis}/{nama}/{kelas}/{jml}','TabunganController@edit');
+Route::get('tabungan-del/{id}','TabunganController@del');
+
+//crud Customer
+Route::get('customer','CustomerController@index');
+Route::get('customer/{id}','CustomerController@show');
+Route::get('customer-add/{code}/{name}/{email}/{country}/{city}/{address}/{number}','CustomerController@store');
+Route::get('customer-edit/{id}/{code}/{name}/{email}/{country}/{city}/{address}/{number}','CustomerController@edit');
+Route::get('customer-del/{id}','CustomerController@del');
+
+
+//passing data
+Route::get('pass','PassingController@pass');
+Route::get('goal','PassingController@pass1');
+Route::get('pass-tabungan','PassingController@pass2');
 
 
 
