@@ -27,4 +27,9 @@ class PassingController extends Controller
      $tabungan = Tabungan::all()->take(10);
      return view('latihan2',compact('tabungan'));
     }
+    public function pass3($id)
+    {
+     $tabungan = Tabungan::findOrFail($id);
+     return view('latihan3',compact('tabungan'));
+    }
 }

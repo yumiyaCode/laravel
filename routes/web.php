@@ -254,7 +254,11 @@ Route::get('customer-del/{id}','CustomerController@del');
 Route::get('pass','PassingController@pass');
 Route::get('goal','PassingController@pass1');
 Route::get('pass-tabungan','PassingController@pass2');
+Route::get('pass-tabungan3/{id}','PassingController@pass3');
 
+//tugas pass
+Route::get('list1','ArkController@list1');
+Route::get('list2/{id}','ArkController@list2');
 
 
 

@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ServantsSeeder::class);
         factory(App\Tabungan::class,100)->create();
         factory(App\Customer::class,1000)->create();
+        $this->call(ArknightSeeder::class);
     }
 }

@@ -7,24 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    <center>Personal Data Tabungan</center>
+    Nama  : {{$tabungan -> nama}}<br>
+    Nis : {{$tabungan -> nis}}<br>
+    Jumlah : {{$tabungan -> jml}}<br>
+    Kelas : {{$tabungan -> kelas}}<br>
 
- @foreach($tabungan as $value1)
-
-Nama  : {{$value1 -> nama}}<br>
-Nis : {{$value1 -> nis}}<br>
-Jumlah : {{$value1 -> jml}}<br>
-
-@if($value1->jml >= 50000)
+@if($tabungan->jml > 25000)
     Tabungan Paket C<br>
-@elseif($value1->jml >= 25000)
+@elseif($tabungan->jml > 10000)
     Tabungan Paket B<br>
-@elseif($value1->jml >= 10000)
+@else
     Tabungan Paket A<br>
 @endif
-
-<hr>
-
-@endforeach
 
 </body>
 </html>
